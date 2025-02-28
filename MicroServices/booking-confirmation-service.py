@@ -6,7 +6,7 @@ import logging
 sqs = boto3.client('sqs')
 sns = boto3.client('sns')
 
-# Replace with your actual AWS resource details
+# Replace with actual AWS resource details
 BOOKING_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/your-id/BookingQueue"
 BOOKING_CONFIRMATION_TOPIC_ARN = "arn:aws:sns:us-east-1::your-id:BookingConfirmationTopic"
 
@@ -44,7 +44,7 @@ def lambda_handler(event, context):
                     Message=f"Your flight booking (ID: {booking_id}) for Flight {flight_id} on {journey_date} is confirmed. Total price: ${total_price}."
                 )
 
-                # ✅ Delete processed message from SQS to avoid duplicates
+                # Delete processed message from SQS to avoid duplicates
                 sqs.delete_message(
                     QueueUrl=BOOKING_QUEUE_URL,
                     ReceiptHandle=message['ReceiptHandle']
