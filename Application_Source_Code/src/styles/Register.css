@@ -1,0 +1,157 @@
+/* .register::before {
+  background-image: url("../assets/flight8.jpg"); 
+  background-size: cover; 
+    background-repeat: no-repeat;
+  background-position: center;
+}
+.registerForm {
+  background: linear-gradient(135deg, #bcee71, #b4d260,#cde858, #ee8336);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.registerForm .h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #f6f4f4;
+}
+
+.registerFormInput,
+.registerSelect {
+  margin-bottom: 1.5rem;
+}
+
+.registerButton {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background:linear-gradient(135deg, #6aebe7, #60cff8,#2675de, #634ff6);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registerButton:hover {
+  background-color: #0056b3;
+}
+
+.toggleLogin {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.toggleLogin:hover {
+  color: #0056b3;
+} */
+
+
+
+.registerPage::before {
+  
+  background-image: url("../assets/flight8.jpg"); 
+  background-size: cover; 
+    background-repeat: no-repeat;
+  background-position: center;
+}
+
+.registrationForm {
+  background: linear-gradient(135deg, #bcee71, #b4d260, #cde858, #ee8336);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px; /* Adjust width as needed */
+  text-align: center;
+}
+
+.formTitle {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #f6f4f4;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.inputField {
+  width: 100%;
+  padding: 1.2rem 0.8rem 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  font-size: 1rem;
+}
+
+.inputField::placeholder {
+  color: transparent; /* Hide the placeholder text initially */
+}
+
+.inputLabel {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #a0a0a0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.inputField:focus + .inputLabel,
+.inputField:not(:placeholder-shown) + .inputLabel {
+  top: 10px;
+  left: 10px;
+  font-size: 0.75rem;
+  color: #333;
+  /* background-color: #f8f8f8; */
+  padding: 0 5px;
+}
+
+.inputSelect {
+  width: 100%;
+  padding: 1.2rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f8f8;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #6aebe7, #60cff8, #2675de, #634ff6);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.loginPrompt {
+  color: #333;
+}
+
+.loginToggle {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.loginToggle:hover {
+  color: #0056b3;
+}

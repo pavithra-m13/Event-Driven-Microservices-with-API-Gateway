@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  # Using a specific Node.js version instead of "latest" for consistency
+    commands:
+      - echo Installing dependencies...
+      - npm install
+
+  build:
+    commands:
+      - echo Building the React app...
+      - npm run build
+
+  post_build:
+    commands:
+      - echo Build completed. Checking if build directory exists...
+      - if [ -d "build" ]; then echo "Build directory exists. Proceeding with deployment..."; else echo "Build directory missing! Build failed."; exit 1; fi
+      - echo Syncing with S3...
+      - aws s3 sync build/ s3://microservices-bucket-2802 --delete
+      - echo Deployment completed.
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build

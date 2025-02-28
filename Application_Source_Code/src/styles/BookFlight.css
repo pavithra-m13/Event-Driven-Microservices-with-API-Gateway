@@ -1,0 +1,119 @@
+.BookFlightPage {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/bookticket.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 20vh;
+}
+
+
+    .BookingFlightPageContainer {
+        width: 50%;
+        /* background: linear-gradient(135deg, #f2a375, #ee884d, #f1b131, #ee8336); */
+        padding: 1vh 2%;
+        background-color: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: px;
+    }
+
+
+.BookingFlightPageContainer h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+.BookingFlightPageContainer p , .BookingFlightPageContainer h6 {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.form-floating input,
+.form-floating select {
+    font-size: 21px;
+    padding: 0.4rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 50%;
+}
+
+.form-floating input::placeholder,
+.form-floating select::placeholder {
+    font-size: 20px;
+    color: #607D8B;
+    opacity: 1;
+    font-weight: 300;
+    font-style: italic;
+    padding-left: 10px;
+}
+
+.form-floating input:focus::placeholder,
+.form-floating select:focus::placeholder {
+    color: #007BFF;
+    opacity: 1;
+}
+
+.form-floating label {
+    font-size: 60px;
+    color: #607D8B;
+}
+
+.BookingFlightPageContainer button {
+    width: 40%;
+    padding: 0.3rem;
+    background:linear-gradient(135deg, #6aebe7, #60cff8, #2675de, #634ff6);;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.3s;
+    margin-left: 30%;
+}
+
+.BookingFlightPageContainer button:hover {
+    background-color: #0056b3;
+}
+
+.new-passenger h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(48, 91, 114);
+}
+
+.new-passenger-inputs {
+    display: grid;
+    grid-template-columns: 65% 30%;
+    gap: 5%;
+}
+
+@media (max-width: 768px) {
+    .BookingFlightPageContainer {
+        width: 50%;
+        padding: 2vh 5%;
+    }
+
+    .BookingFlightPageContainer span {
+        grid-template-columns: 100%;
+    }
+
+    .BookingFlightPageContainer .span3 {
+        grid-template-columns: 100%;
+    }
+
+    .BookingFlightPageContainer button {
+        width: 100%;
+    }
+}

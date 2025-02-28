@@ -1,0 +1,368 @@
+
+.landingPage {
+    width: 100%;
+    height: fit-content;
+  }
+  
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .text {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  .text-1 {
+    animation-delay: 0s;
+  }
+  
+  .text-2 {
+    animation-delay: 1s;
+  }
+  
+  .text-3 {
+    animation-delay: 2s;
+  }
+  
+  
+  .landingHero {
+    width: 100%;
+    height: 100vh;
+    padding-top: 10vh;
+    background-image: linear-gradient(45deg, rgba(36, 59, 69, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/homeimage.avif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .landingHero::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .landingHero-title {
+    width: 60%;
+    margin: 6% 0 0 4%;
+  }
+  
+  .landingHero-title h1 {
+    color: #f0f8ff;
+    font-size: 4rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .landingHero-title p {
+    color: rgba(240, 248, 255, 0.7);
+    font-size: 1.2rem;
+  }
+  
+  /* Button Styling */
+  .centered-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .banner-h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .banner-p {
+    font-size: 18px;
+    color: #666;
+  }
+  
+  .search-flights-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-flights-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+  }
+  
+ 
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+
+  .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #333;
+    text-decoration: none;
+  }
+  
+
+  .modal-content h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Modal Text */
+  .modal-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 12px 0;
+    color: #555;
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+  
+  .modal-content .label {
+    font-weight: 600;
+    color: #4CAF50;
+    font-size: 25px;
+    display: inline-block;
+    margin-right: 8px;
+
+  }
+  
+  .modal-content .detail-value {
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Booking Button */
+  .modal-content button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 15px 30px;
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #218838;
+  }
+  
+  /* Animation for modal fading in */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    padding: 12px 25px;
+    background-color: #f57c00;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #ff9100;
+  }
+  
+  /* About Section */
+  .section-about {
+    min-height: 50vh;
+    background: linear-gradient(145deg, rgb(205, 227, 249) 0%, rgb(232, 239, 243) 55%, rgb(213, 189, 222) 100%);
+    padding: 20px;
+  }
+  
+  .section-about h2 {
+    font-weight: 600;
+    color: #055791;
+  }
+  
+  .section-about p {
+    text-align: justify;
+    color: #055791;
+  }
+  
+  .section-about span {
+    text-align: center;
+    color: #6badeb;
+  }
+  
+  .section-about span h5 {
+    margin-top: 8vh;
+    font-size: 1rem;
+  }
+  
+  /* Centered Button Styling */
+  .centered-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .search-flights-btn {
+    padding: 12px 25px;
+    background-color: #f57c00;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-flights-btn:hover {
+    background-color: #ff9100;
+  }
+  
+  /* Available Flights Section */
+  .flight {
+    background-color: #f7bd71;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flight p {
+    font-size: 22px;
+    color: #333;
+    margin: 8px 0;
+  }
+  
+  .flight button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .flight button:hover {
+    background-color: #218838;
+  }
+  
+  /* Styling for form-floating container */
+.form-floating {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .form-select{
+    background-color: #28a745;
+  }
+  /* Styling for the select and input inside form-floating */
+  .form-floating .form-select,
+  .form-floating .form-control {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: none; /* Hides default arrow in select elements */
+  }
+  
+  .form-floating .form-select:focus,
+  .form-floating .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    outline: none;
+  }
+  
+  /* Styling for floating label */
+  .form-floating label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    font-size: 28px;
+    color:orange;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f9f9f9;
+    padding: 0 5px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  
+  .form-floating .form-control:focus + label,
+  .form-floating .form-control:not(:placeholder-shown) + label,
+  .form-floating .form-select:focus + label,
+  .form-floating .form-select:not([value=""]) + label {
+    top: -10px;
+    left: 12px;
+    font-size: 12px;
+    color: black;
+    background-color: white;
+    padding: 0 5px;
+  }
+  
+  
+  /* CSS for icon image */
+.search-icon {
+    display: block;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    margin: 0 auto 20px; /* Center align and add spacing */
+}

@@ -1,0 +1,96 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "CloudFormation Template to create DynamoDB Tables for Users and Tickets with Lambda access"
+
+Resources:
+  # DynamoDB Table for Users
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "Users"
+      AttributeDefinitions:
+        - AttributeName: "email"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "email"
+          KeyType: "HASH"
+      BillingMode: PAY_PER_REQUEST
+      Tags:
+        - Key: "Environment"
+          Value: "Production"
+
+  # DynamoDB Table for Tickets
+  TicketsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: "Tickets"
+      AttributeDefinitions:
+        - AttributeName: "ticket_id"
+          AttributeType: "S"
+        - AttributeName: "email"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "ticket_id"
+          KeyType: "HASH"
+      BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: "EmailIndex"
+          KeySchema:
+            - AttributeName: "email"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "ALL"
+      Tags:
+        - Key: "Environment"
+          Value: "Production"
+
+  # IAM Role for Lambda to access DynamoDB tables
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: "LambdaDynamoDBAccessRole"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: 
+                - lambda.amazonaws.com
+            Action: 
+              - sts:AssumeRole
+      Policies:
+        - PolicyName: "LambdaDynamoDBAccessPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                  - dynamodb:GetItem
+                  - dynamodb:Query
+                  - dynamodb:Scan
+                  - dynamodb:UpdateItem
+                  - dynamodb:DeleteItem
+                Resource: 
+                  - !GetAtt UsersTable.Arn
+                  - !GetAtt TicketsTable.Arn
+
+Outputs:
+  UsersTableName:
+    Description: "DynamoDB Table Name for Users"
+    Value: !Ref UsersTable
+
+  TicketsTableName:
+    Description: "DynamoDB Table Name for Tickets"
+    Value: !Ref TicketsTable
+
+  UsersTableArn:
+    Description: "ARN of the Users DynamoDB Table"
+    Value: !GetAtt UsersTable.Arn
+
+  TicketsTableArn:
+    Description: "ARN of the Tickets DynamoDB Table"
+    Value: !GetAtt TicketsTable.Arn
+
+  LambdaExecutionRoleArn:
+    Description: "IAM Role ARN for Lambda to access Users and Tickets DynamoDB"
+    Value: !GetAtt LambdaExecutionRole.Arn

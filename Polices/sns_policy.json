@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "__default_statement_ID",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "*"
+          },
+          "Action": [
+              "SNS:Publish",
+              "SNS:Subscribe",
+              "SNS:ListSubscriptionsByTopic",
+              "SNS:GetTopicAttributes"
+          ],
+          "Resource": "arn:aws:sns:us-east-1:your-id:BookingConfirmationTopic",
+          "Condition": {
+              "StringEquals": {
+                  "AWS:SourceOwner": "your-id"
+              }
+          }
+      },
+      {
+          "Sid": "AllowAccountLambdasToPublish",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::your-id:root"
+          },
+          "Action": "SNS:Publish",
+          "Resource": "arn:aws:sns:us-east-1:your-id:BookingConfirmationTopic"
+      }
+  ]
+}

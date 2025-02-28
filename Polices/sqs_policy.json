@@ -1,0 +1,28 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "AllowAccountOwner",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::your-id:root"
+          },
+          "Action": "SQS:*",
+          "Resource": "arn:aws:sqs:us-east-1::your-id:BookingQueue"
+      },
+      {
+          "Sid": "AllowLambdaToAccessSQS",
+          "Effect": "Allow",
+          "Principal": {
+              "Service": "lambda.amazonaws.com"
+          },
+          "Action": [
+              "SQS:SendMessage",
+              "SQS:ReceiveMessage",
+              "SQS:DeleteMessage",
+              "SQS:GetQueueAttributes"
+          ],
+          "Resource": "arn:aws:sqs:us-east-1:your-id:BookingQueue"
+      }
+  ]
+}
